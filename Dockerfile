@@ -1,9 +1,7 @@
 FROM python:3.10
 
 WORKDIR /code
-COPY requirements.txt /requirements.txt
-
-RUN pip install -r requirements.txt
+RUN pip install -U gunicorn autogenstudio
 
 RUN useradd -m -u 1000 user
 USER user
