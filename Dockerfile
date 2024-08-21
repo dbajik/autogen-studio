@@ -3,12 +3,12 @@ FROM python:3.10
 WORKDIR /code
 RUN pip install -U gunicorn autogenstudio
 
-
 RUN useradd -m -u 1000 user
 USER root
 ENV HOME=/home/user \
     PATH=/home/user/.local/bin:$PATH \
-    AUTOGENSTUDIO_APPDIR=/home/user/app
+    AUTOGENSTUDIO_APPDIR=/home/user/app \
+    DATABASE_URI=postgresql+psycopg://postgres:infobae2024@34.31.110.7:5432/autogen
 
 WORKDIR $HOME/app
 
