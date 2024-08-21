@@ -3,6 +3,7 @@ FROM python:3.10
 WORKDIR /code
 RUN pip install -U gunicorn autogenstudio
 
+
 RUN useradd -m -u 1000 user
 USER root
 ENV HOME=/home/user \
