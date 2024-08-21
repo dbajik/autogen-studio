@@ -18,4 +18,4 @@ RUN chown -R user:user $HOME/app
 
 USER user
 
-CMD gunicorn -w $((2 * $(getconf _NPROCESSORS_ONLN) + 1)) --timeout 12600 -k uvicorn.workers.UvicornWorker autogenstudio.web.app:app --bind "0.0.0.0:${PORT}"
+CMD gunicorn -w $((2 * $(getconf _NPROCESSORS_ONLN) + 1)) --timeout 12600 -k uvicorn.workers.UvicornWorker autogenstudio.web.app:app --database-uri postgresql+psycopg://postgres:infobae2024@35.193.22.130:5432/autogen --bind "0.0.0.0:${PORT}"
